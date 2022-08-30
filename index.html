@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+
+</head>
+<body>
+    <div class="container">
+        <span id = "hours">00</span>
+        <span>:</span>
+        <span id = "minutes">00</span>
+        <span>:</span>
+        <span id = "seconds">00</span>
+        <span id = "sessions">AM</span>
+    </div>
+
+    <script>
+       function displayTime(){
+    let dateTime = new Date();
+    let hrs = dateTime.getHours();
+    let mins = dateTime.getMinutes();
+    let secs = dateTime.getSeconds();
+    let session = document.getElementById("sessions"); 
+
+    if(hrs >= 12){
+        session.innerText = 'PM'
+
+        let newColor = document.querySelector('body')
+        newColor.style.backgroundColor = "#36454F"
+    }else{
+        session.innerText = 'AM'
+    }
+
+    document.getElementById('hours').innerText = hrs; 
+    document.getElementById('minutes').innerText = mins; 
+    document.getElementById('seconds').innerText = secs; 
+}
+
+setInterval(displayTime, 10) 
+    </script>
+</body>
+</html>
